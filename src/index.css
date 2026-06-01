@@ -1,0 +1,279 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-obsidian: #0a0a0b;
+  --color-charcoal: #141418;
+  --color-stone: #2a2a30;
+  --color-ash: #8a8a92;
+  --color-marble: #e8e6e1;
+  --color-silver: #b8b6b0;
+  --color-patina: #6b7a75;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-obsidian text-marble font-sans antialiased;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    @apply bg-patina/25 text-marble;
+  }
+}
+
+.grain-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+
+.vignette {
+  background: radial-gradient(
+    ellipse 80% 70% at 50% 45%,
+    transparent 0%,
+    rgba(10, 10, 11, 0.5) 55%,
+    rgba(10, 10, 11, 0.92) 100%
+  );
+}
+
+/* Typography */
+.section-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-ash);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--color-marble);
+  text-wrap: balance;
+}
+
+.section-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--color-ash);
+}
+
+.inscription {
+  font-family: var(--font-display);
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+/* Interactive */
+.marble-glow {
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.marble-glow:hover {
+  border-color: var(--color-silver);
+}
+
+.btn-primary {
+  border: 1px solid color-mix(in srgb, var(--color-marble) 35%, transparent);
+  background: transparent;
+}
+
+.btn-primary:hover {
+  border-color: var(--color-marble);
+  background: color-mix(in srgb, var(--color-marble) 6%, transparent);
+}
+
+.card {
+  border: 1px solid color-mix(in srgb, var(--color-stone) 80%, transparent);
+  background: var(--color-charcoal);
+}
+
+.quote-block {
+  border-left: 2px solid var(--color-patina);
+  padding-left: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .quote-block {
+    padding-left: 2rem;
+  }
+
+  .quote-block--end {
+    border-left: none;
+    border-right: 2px solid var(--color-patina);
+    padding-left: 0;
+    padding-right: 2rem;
+  }
+
+  .quote-block--end.quote-block--on-dark {
+    border-right-color: color-mix(in srgb, white 35%, transparent);
+  }
+}
+
+.quote-block--on-dark {
+  border-left-color: color-mix(in srgb, white 35%, transparent);
+}
+
+.marble-column {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--color-stone) 50%,
+    transparent 100%
+  );
+}
+
+.nav-glass {
+  background: color-mix(in srgb, var(--color-obsidian) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-stone) 60%, transparent);
+}
+
+.scroll-progress {
+  transform-origin: left;
+  background: var(--color-patina);
+}
+
+/* Section surfaces */
+.section-surface {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+
+.section-surface--charcoal {
+  background: linear-gradient(
+    180deg,
+    #1c1c21 0%,
+    var(--color-charcoal) 35%,
+    #101012 100%
+  );
+}
+
+.section-surface--obsidian {
+  background: linear-gradient(
+    180deg,
+    #141418 0%,
+    var(--color-obsidian) 50%,
+    #060608 100%
+  );
+}
+
+.section-surface--lift {
+  background: radial-gradient(
+    ellipse 80% 50% at 50% 0%,
+    color-mix(in srgb, var(--color-patina) 12%, transparent) 0%,
+    transparent 55%
+  );
+}
+
+.section-surface--line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--color-patina) 70%, transparent),
+    transparent
+  );
+}
+
+.stat-card {
+  border: 1px solid color-mix(in srgb, var(--color-stone) 90%, transparent);
+  background: linear-gradient(
+    160deg,
+    #222228 0%,
+    var(--color-charcoal) 55%,
+    #121216 100%
+  );
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  border-color: color-mix(in srgb, var(--color-patina) 45%, transparent);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px);
+}
+
+.roadmap-step {
+  border: 1px solid color-mix(in srgb, var(--color-stone) 70%, transparent);
+  background: color-mix(in srgb, var(--color-charcoal) 80%, var(--color-obsidian));
+  padding: 1.75rem 1.5rem;
+  transition: border-color 0.25s ease;
+}
+
+.roadmap-step:hover {
+  border-color: color-mix(in srgb, var(--color-patina) 35%, transparent);
+}
+
+.link-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--color-stone) 80%, transparent);
+  background: linear-gradient(
+    160deg,
+    #1e1e24 0%,
+    var(--color-charcoal) 100%
+  );
+  padding: 1.25rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-marble);
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.link-tile:hover {
+  border-color: var(--color-patina);
+  background: color-mix(in srgb, var(--color-patina) 10%, var(--color-charcoal));
+  transform: translateY(-2px);
+}
+
+.btn-accent {
+  border: 1px solid var(--color-patina);
+  background: color-mix(in srgb, var(--color-patina) 18%, var(--color-charcoal));
+  color: var(--color-marble);
+}
+
+.btn-accent:hover {
+  background: color-mix(in srgb, var(--color-patina) 28%, var(--color-charcoal));
+  border-color: color-mix(in srgb, var(--color-patina) 80%, white);
+}
