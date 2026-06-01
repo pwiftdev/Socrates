@@ -1,8 +1,7 @@
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-import { CONTRACT_ADDRESS, HERO_IMAGE_PATH, SOCIAL } from '@/lib/constants'
+import { HERO_IMAGE_PATH, SOCIAL } from '@/lib/constants'
 import { fadeUpVariants, marbleEase, staggerContainer } from '@/lib/motion'
-import { CopyAddress } from './CopyAddress'
 import { ScrollCue } from './SiteNav'
 
 export function Hero() {
@@ -73,7 +72,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: marbleEase, delay: 0.14 }}
         >
-          I know that I know nothing… except that this is going to 1000x.
+          I know that I know nothing…
         </motion.p>
 
         <motion.div
@@ -83,6 +82,15 @@ export function Hero() {
           animate="visible"
         >
           <motion.a
+            href={SOCIAL.twitter}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary marble-glow inline-flex items-center justify-center px-8 py-3 font-sans text-sm font-medium uppercase tracking-widest text-marble"
+            variants={fadeUpVariants}
+          >
+            Follow on X
+          </motion.a>
+          <motion.a
             href={SOCIAL.buy}
             target="_blank"
             rel="noopener noreferrer"
@@ -91,8 +99,14 @@ export function Hero() {
           >
             Buy $SOCRATES
           </motion.a>
-          <motion.div variants={fadeUpVariants}>
-            <CopyAddress address={CONTRACT_ADDRESS} />
+          <motion.div
+            variants={fadeUpVariants}
+            className="inline-flex items-center gap-2 rounded-full border border-stone bg-charcoal/80 px-4 py-2 font-sans text-sm"
+          >
+            <span className="text-xs uppercase tracking-widest text-ash">
+              Contract
+            </span>
+            <span className="text-marble">To be announced</span>
           </motion.div>
         </motion.div>
       </motion.div>

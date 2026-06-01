@@ -5,7 +5,6 @@ import { CopyAddress } from './CopyAddress'
 
 const FOOTER_LINKS = [
   { label: 'X', href: SOCIAL.twitter },
-  { label: 'Telegram', href: SOCIAL.telegram },
   { label: 'Chart', href: SOCIAL.dex },
   { label: 'Buy', href: SOCIAL.buy },
 ] as const

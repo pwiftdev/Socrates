@@ -8,8 +8,7 @@ export const CONTRACT_ADDRESS =
   'SoCRAteSxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 
 export const SOCIAL = {
-  twitter: 'https://x.com/placeholder',
-  telegram: 'https://t.me/placeholder',
+  twitter: 'https://x.com/SocraticOrder',
   dex: 'https://dexscreener.com/placeholder',
   buy: 'https://placeholder-buy-link.com',
 } as const

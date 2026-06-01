@@ -39,6 +39,12 @@ export function PhilosopherReborn() {
               <motion.p className="text-marble/90" variants={fadeUpVariants}>
                 Wisdom, immortality, and a chart that refuses to be examined.
               </motion.p>
+              <motion.p
+                className="inscription text-lg text-marble/90 md:text-xl"
+                variants={fadeUpVariants}
+              >
+                &ldquo;The unexamined bag is not worth holding.&rdquo;
+              </motion.p>
             </motion.div>
           </div>
         </div>

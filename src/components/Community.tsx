@@ -6,7 +6,6 @@ import { SectionHeading } from './ui/SectionHeading'
 
 const LINKS = [
   { label: 'X / Twitter', href: SOCIAL.twitter },
-  { label: 'Telegram', href: SOCIAL.telegram },
   { label: 'DexScreener', href: SOCIAL.dex },
 ] as const
 
@@ -35,7 +34,7 @@ export function Community() {
 
         <SectionReveal delay={0.1}>
           <motion.div
-            className="mt-12 grid gap-3 sm:grid-cols-3"
+            className="mt-12 grid gap-3 sm:grid-cols-2"
             variants={staggerContainer}
             initial={reduceMotion ? 'visible' : 'hidden'}
             whileInView="visible"
