@@ -1,7 +1,8 @@
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-import { HERO_IMAGE_PATH, SOCIAL } from '@/lib/constants'
+import { CONTRACT_ADDRESS, HERO_IMAGE_PATH, SOCIAL } from '@/lib/constants'
 import { fadeUpVariants, marbleEase, staggerContainer } from '@/lib/motion'
+import { CopyAddress } from './CopyAddress'
 import { ScrollCue } from './SiteNav'
 
 export function Hero() {
@@ -99,14 +100,8 @@ export function Hero() {
           >
             Buy $SOCRATES
           </motion.a>
-          <motion.div
-            variants={fadeUpVariants}
-            className="inline-flex items-center gap-2 rounded-full border border-stone bg-charcoal/80 px-4 py-2 font-sans text-sm"
-          >
-            <span className="text-xs uppercase tracking-widest text-ash">
-              Contract
-            </span>
-            <span className="text-marble">To be announced</span>
+          <motion.div variants={fadeUpVariants}>
+            <CopyAddress address={CONTRACT_ADDRESS} />
           </motion.div>
         </motion.div>
       </motion.div>

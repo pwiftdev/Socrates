@@ -5,7 +5,7 @@ export const DIALOGUES_IMAGE_PATH = '/second%20image.jpeg'
 
 /** Site-wide placeholders — swap before launch */
 export const CONTRACT_ADDRESS =
-  'SoCRAteSxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+  'H6gZ7wfndt9zKEihUDppZuNgkgFGSiHGdSxSWGcbpump'
 
 export const SOCIAL = {
   twitter: 'https://x.com/SocraticOrder',
